@@ -1,400 +1,391 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]> <html class="no-js ie9 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"  dir="ltr" lang="en-US"> <!--<![endif]-->
 <head>
- 
-<link rel="shortcut icon" href="{PortraitURL-24}">
-<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}" />
-<meta name="viewport" content="width=820" />
- 
-<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
- 
-{block:IndexPage}
- 
-<script type="text/javascript"
-src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
- 
-<script type="text/javascript" src="http://static.tumblr.com/dbek3sy/iBElrgjim/jquerymasonry.js"></script>
- 
-<script type="text/javascript" src="http://static.tumblr.com/dbek3sy/Qyblrgjfn/jqueryinfintescroll.js"></script>
-<script type="text/javascript">
-$(window).load(function () {
-var $content = $('#content');
-$content.masonry({itemSelector: '.entry'}),
-$content.infinitescroll({
-navSelector : 'div#pagination',
-nextSelector : 'div#pagination a#nextPage',
-itemSelector : '.entry',
-loading: {
-finishedMsg: '',
-img: 'http://static.tumblr.com/dbek3sy/pX1lrx8xv/ajax-loader.gif'
-},
-bufferPx : 600,
-debug : false,
-},
-// call masonry as a callback.
-function( newElements ) {
-var $newElems = $( newElements );
-$newElems.hide();
-// ensure that images load before adding to masonry layout
-$newElems.imagesLoaded(function(){
-$content.masonry( 'appended', $newElems, true, function(){$newElems.fadeIn(300);} );});});});</script>
-{/block:IndexPage}
- 
-<meta name="color:background" content="#ffffff" />
-<meta name="color:text" content="#000" />
-<meta name="color:title link" content="#4e4e4e" />
-<meta name="color:link" content="#a3a3a3" />
-<meta name="color:nav link" content="#ffffff" />
-<meta name="color:nav background" content="#a3a3a3" />
-<meta name="color:link hover" content="#eee" />
-<meta name="color:scrollbar" content="#000" />
-<meta name="color:post border" content="#ebebeb" />
-<meta name="color:permalinks" content="#ffffff">
- 
-<meta name="if:1 column" content="0">
-<meta name="if:2 columns" content="1">
-<meta name="if:3 columns" content="0">
-<meta name="image:background" content="" />
- 
-<meta name="text:link1" content="link1" />
-<meta name="text:link1url" content="http://" />
-<meta name="text:link2" content="link2" />
-<meta name="text:link2url" content="http://" />
-<meta name="text:link3" content="link3" />
-<meta name="text:link3url" content="http://" />
- 
- 
-<style type="text/css">
- 
- 
-::-webkit-scrollbar {width: 5px; height: 0px; background:{color:background};}
-::-webkit-scrollbar-thumb {background: {color:scrollbar}; border-radius:10px;}
- 
-iframe#tumblr_controls {position:fixed; z-index:9999999999; top: 3px; margin: 0 0 0 0; right:4px; -webkit-filter: invert(100%);}
- 
-body {
-background-color: {color:background};
-background-image:url({image:Background});
-background-attachment: fixed;
-background-repeat: repeat;
-font-size:20px;
-font-family:ABEL;
-line-height:20px;
-text-transform:none;
-color: {color:text};
-}
- 
-#nav{
-position:fixed;
-top:200px;
-left:20px;
-width:500px;
-text-align:center;
-border:3px solid #000000;
-}
- 
-#navlink{  
-font-size:19px;
-line-height:20px;
-word-spacing:7px;
-text-align:center;
-text-transform:uppercase;
--moz-transition: all 0.4s ease-in-out;
--webkit-transition: all 0.4s ease-in-out;
--o-transition: all 0.4s ease-in-out;
--ms-transition: all 0.4s ease-in-out;
-transition: all 0.4s ease-in-out;
-}
- 
-#navlink a{
-color:{color:nav link};    
-background-color:{color:nav background};  
-padding-left:3px;
-padding-right:3px;
-}
- 
-#navlink a:hover{
-color:{color:nav background};
-background-color:{color:nav link};
-}
- 
-.description{  
-font-size:13px;
-line-height:14px;
-text-transform:none;
-word-spacing:1px;
-}
- 
-.answer{
-}
-.answer img {
-width:250px;
-height:auto;
-{block:permalinkpage}
-width:auto;
-height:auto;
-{/block:permalinkpage}
-}
- 
-a {
-text-decoration:none;
-color:{color:link};
--webkit-transition: all 0.4s linear;
--moz-transition: all 0.4s linear;
-transition: all 0.4s linear;
-}
- 
-a:link, a:active, a:visited{
-color: {color:link};
-}
- 
-a:hover{
-color: {color:link hover};
-}
- 
-div#center{
-margin-left: 0px;
-width: 100%;
-height: auto;
-overflow-x:hidden;
-}
- 
-div#content {
-width: 600px;
-left:600px;
-margin-top:40px;
-position: absolute;
-}
- 
-.entry{
-margin:8px;
-padding:5px;
-float:left;
-height:auto;
-background-color: #trans;
-{block:IndexPage}
-border:1px solid {color:post border};
-width:250px;
-overflow:hidden;
-{/block:IndexPage}
-{block:PermalinkPage}
-width:400px;
-height:auto;
-{/block:PermalinkPage}
- 
-}
- 
-.title{
-font-size:21px;
-line-height:22px;
-text-transform:uppercase;
-color: {color:text};
-}
- 
-blockquote{
-padding:0px 0px 0px 3px;
-margin:0px 0px 0px 2px;
-border-left: 2px solid #ddd;
-}
- 
-.entry .perma{
-position:absolute;
-background:{color:permalinks};
-border-radius:5px;
-padding-top:5px;
-padding-bottom:5px;
-left: 50%;
-margin-left:-70px;
-width:140px;
-height:70px;
-margin-top:-40px;
-top:50%;
-overflow:hidden;
-text-align:center;
-text-transform:uppercase;
-font-size:14px;
-line-height:23px;
-box-shadow:1px 3px 7px gray;
-opacity: 0;
--webkit-transition: all 0.2s linear;
--webkit-transition: all 0.2s linear;
--moz-transition: all 0.2s linear;
-transition: all 0.2s linear;
-}
- 
-.entry:hover .perma{
-overflow:hidden;
-opacity: .9;
--webkit-transition: all 0.2s linear;
--webkit-transition: all 0.2s linear;
--moz-transition: all 0.2s linear;
-transition: all 0.2s linear;
-}
- 
-.k{
-word-spacing:1px;
-}
- 
-#titlelink a{
-background-color:{color:title link};
-}
- 
-.permalink{
-text-align:center;
-opacity:0;
--webkit-transition: all 0.4s linear;
--webkit-transition: all 0.4s linear;
--moz-transition: all 0.4s linear;
-transition: all 0.4s linear;
-}
- 
-.entry:hover .permalink{
-opacity:1;
--webkit-transition: all 0.4s linear;
--webkit-transition: all 0.4s linear;
--moz-transition: all 0.4s linear;
-transition: all 0.4s linear;
-}
- 
-.notess{
-position:absolute;
-border:12px solid {color:post border};
-padding:5px;
-left:450px;
-top:10px;
-height:500px;
-width:500px;
-overflow:scroll;
-}
- 
-{CustomCSS}
-</style>
- 
-<title>{title}</title>
- 
-<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}" />
- 
+<meta charset="utf-8">
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="author" content="ppandp">
+<meta name="Description" content="FULLSCREEN – Photography Portfolio HTML5" />
+<title>FULLSCREEN – Photography Portfolio HTML5</title>
+<link href="css/reset.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="css/contact.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="css/styles.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="css/flexslider.css" rel="stylesheet" type="text/css" media="screen">
+<link href="css/jquery.fancybox.css" rel="stylesheet" type="text/css" media="screen" />
+<!--[if gt IE 8]><!--><link href="css/retina-responsive.css" rel="stylesheet" type="text/css" media="screen" /><!--<![endif]-->
+<!--[if !IE]> <link href="css/retina-responsive.css" rel="stylesheet" type="text/css" media="screen" /> <![endif]-->
+<!--[if gt IE 6]> <link href="css/styles-ie.css" rel="stylesheet" type="text/css" media="screen" /> <![endif]-->
+<link href="css/print.css" rel="stylesheet" type="text/css" media="print" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,700,600,800' rel='stylesheet' type='text/css' />
 </head>
-<body>
-
-
-<div id="nav">
- 
-<span id="navlink">
-<img src="http://www.thesoundofsalvation.com/images/sitegraphics/SoS%20headerwhite.jpg"><P></P>
-<a href="/">home</a>
-<a href="http://thesoundofsalvation.bigcartel.com">SHOP</a>
-
- 
- 
-{block:HasPages}{block:Pages}<a href="{URL}"><span class="k">{Label}</span></a> {/block:Pages}{/block:HasPages}
-</span>
-<br><br>
-<span class="description">{Description}</span>
+<body class="index">
+<div id="wrap">
+  <!-- Preloader -->
+  <div id="preloader">
+    <div id="status">&nbsp;</div>
+  </div>
+  <header id="wrapper">
+    <div class="container clearfix">
+      <h1 id="logo"><a href="index.html">MY FOLIO</a></h1>
+      <!-- start navi -->
+      <div id="nav-button"> <span class="nav-bar"></span> <span class="nav-bar"></span> <span class="nav-bar"></span> </div>
+      <div id="options" class="clearfix">
+        <ul id="main-menu">
+          <li><a href="index.html" class="current">Home</a>
+          	<ul class="other">
+              <li><a href="index2.html">Full Opacity</a></li>
+            </ul></li>
+          <li><a href="#" class="dead-link">Portfolio</a>
+            <ul class="other">
+              <li><a href="slideshow.html">Slideshow</a></li>
+              <li><a href="masonry.html">Masonry Grid</a></li>
+              <li><a href="slider.html">Slider</a></li>
+              <li><a href="classic.html">Classic</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <ul id="homepage" class="option-set clearfix" data-option-key="filter">
+          <li><a href="#filter=.home" class="selected">All</a>
+          <li><a href="#filter=.germany">Germany</a></li>
+          <li><a href="#filter=.africa">Africa</a></li>
+          <li><a href="#filter=.norway">Norway</a></li>
+          <li><a href="#filter=.poland">Poland</a></li>
+        </ul>
+      </div>
+      <!-- end nav -->
+    </div>
+  </header>
+  <!-- end header -->
+  <div id="content">
+    <ul id="container">
+      <li class="element home germany"> <a href="images/pic01b.jpg" title="Esparagus &nbsp; Germany, 2013" data-fancybox-group="group1" class="popup">
+        <div class="images"><img src="images/pic01.jpg" alt="" />
+          <div class="title">
+            <div class="title-wrap">
+              <h3><span>Esparagus</span> </h3>
+            </div>
+          </div>
+          <div class="subtitle">
+            <div class="subtitle-wrap">
+              <p> <span>Germany, 2013</span> </p>
+            </div>
+          </div>
+        </div>
+        </a> </li>
+      <li class="element home poland"> <a href="classic.html" title="">
+        <div class="images"><img src="images/pic02.jpg" alt="" />
+          <div class="title">
+            <div class="title-wrap">
+              <h3><span>Shop Example</span> </h3>
+            </div>
+          </div>
+          <div class="subtitle">
+            <div class="subtitle-wrap">
+               <p> <span>Sweden, <span class="line-through">$490</span> $250</span> </p>
+            </div>
+          </div>
+        </div>
+        </a> </li>
+      <li class="element home germany"> <a href="images/pic03.jpg" title="Scary Wolfes &nbsp; Germany, 2012" data-fancybox-group="group1" class="popup">
+        <div class="images"><img src="images/pic03.jpg" alt="" />
+          <div class="title">
+            <div class="title-wrap">
+              <h3><span>Scary Wolfes</span> </h3>
+            </div>
+          </div>
+          <div class="subtitle">
+            <div class="subtitle-wrap">
+              <p> <span>Germany, 2012</span> </p>
+            </div>
+          </div>
+        </div>
+        </a> </li>
+      <li class="element home africa"> <a href="slider.html" title="">
+        <div class="images"><img src="images/pic06.jpg" alt="" />
+          <div class="title">
+            <div class="title-wrap">
+              <h3><span>Slider Example</span> </h3>
+            </div>
+          </div>
+          <div class="subtitle">
+            <div class="subtitle-wrap">
+              <p> <span>Africa, 2012</span> </p>
+            </div>
+          </div>
+        </div>
+        </a> </li>
+      <li class="element home norway"> <a href="images/pic05.jpg" title="Fresh Fish &nbsp; Norway, 2011" data-fancybox-group="group1" class="popup">
+        <div class="images"><img src="images/pic05.jpg" alt="" />
+          <div class="title">
+            <div class="title-wrap">
+              <h3><span>Fresh Fish</span> </h3>
+            </div>
+          </div>
+          <div class="subtitle">
+            <div class="subtitle-wrap">
+              <p> <span>Norway, 2011</span> </p>
+            </div>
+          </div>
+        </div>
+        </a> </li>
+      <li class="element home poland"> <a href="images/pic07b.jpg" title="Net on Wood &nbsp; Poland, 2012" data-fancybox-group="group1" class="popup">
+        <div class="images"><img src="images/pic07.jpg" alt="" />
+          <div class="title">
+            <div class="title-wrap">
+              <h3><span>Net on Wood</span> </h3>
+            </div>
+          </div>
+          <div class="subtitle">
+            <div class="subtitle-wrap">
+              <p> <span>Poland, 2012</span> </p>
+            </div>
+          </div>
+        </div>
+        </a> </li>
+      <li class="element home norway"> <a href="images/pic08.jpg" title="Fishing Village &nbsp; Norway, 2010" data-fancybox-group="group1" class="popup">
+        <div class="images"><img src="images/pic08.jpg" alt="" />
+          <div class="title">
+            <div class="title-wrap">
+              <h3><span>Fishing Village</span> </h3>
+            </div>
+          </div>
+          <div class="subtitle">
+            <div class="subtitle-wrap">
+              <p> <span>Norway, 2010</span> </p>
+            </div>
+          </div>
+        </div>
+        </a> </li>
+      <li class="element home africa"> <a href="images/pic04.jpg" title="Broken House &nbsp; Africa, 2012" data-fancybox-group="group1" class="popup">
+        <div class="images"><img src="images/pic04.jpg" alt="" />
+          <div class="title">
+            <div class="title-wrap">
+              <h3><span>Broken House</span> </h3>
+            </div>
+          </div>
+          <div class="subtitle">
+            <div class="subtitle-wrap">
+              <p> <span>Africa, 2012</span> </p>
+            </div>
+          </div>
+        </div>
+        </a> </li>
+      <li class="element home germany"> <a href="images/pic15.jpg" title="Carrots &nbsp; Germany, 2012" data-fancybox-group="group1" class="popup">
+        <div class="images"><img src="images/pic15.jpg" alt="" />
+          <div class="title">
+            <div class="title-wrap">
+              <h3><span>Carrots</span> </h3>
+            </div>
+          </div>
+          <div class="subtitle">
+            <div class="subtitle-wrap">
+              <p> <span>Germany, 2012</span> </p>
+            </div>
+          </div>
+        </div>
+        </a> </li>
+      <li class="element home norway"> <a href="images/pic10.jpg" title="Lighthouse &nbsp; Norway, 2013" data-fancybox-group="group1" class="popup">
+        <div class="images"><img src="images/pic10.jpg" alt="" />
+          <div class="title">
+            <div class="title-wrap">
+              <h3><span>Lighthouse</span> </h3>
+            </div>
+          </div>
+          <div class="subtitle">
+            <div class="subtitle-wrap">
+              <p> <span>Norway, 2013</span> </p>
+            </div>
+          </div>
+        </div>
+        </a> </li>
+      <li class="element home poland"> <a href="images/pic11.jpg" title="Ripe Apples &nbsp; Poland, 2012" data-fancybox-group="group1" class="popup">
+        <div class="images"><img src="images/pic11.jpg" alt="" />
+          <div class="title">
+            <div class="title-wrap">
+              <h3><span>Ripe Apples</span> </h3>
+            </div>
+          </div>
+          <div class="subtitle">
+            <div class="subtitle-wrap">
+              <p> <span>Poland, 2012</span> </p>
+            </div>
+          </div>
+        </div>
+        </a> </li>
+      <li class="element home norway"> <a href="images/pic12.jpg" title="Wolf in Action &nbsp; Norway, 2012" data-fancybox-group="group1" class="popup">
+        <div class="images"><img src="images/pic12.jpg" alt="" />
+          <div class="title">
+            <div class="title-wrap">
+              <h3><span>Wolf in Action</span> </h3>
+            </div>
+          </div>
+          <div class="subtitle">
+            <div class="subtitle-wrap">
+              <p> <span>Norway, 2012</span> </p>
+            </div>
+          </div>
+        </div>
+        </a> </li>
+      <li class="element home africa"> <a href="images/pic13.jpg" title="Sleepy Owl &nbsp; Africa, 2011" data-fancybox-group="group1" class="popup">
+        <div class="images"><img src="images/pic13.jpg" alt="" />
+          <div class="title">
+            <div class="title-wrap">
+              <h3><span>Sleepy Owl</span> </h3>
+            </div>
+          </div>
+          <div class="subtitle">
+            <div class="subtitle-wrap">
+              <p> <span>Africa, 2011</span> </p>
+            </div>
+          </div>
+        </div>
+        </a> </li>
+      <li class="element home germany"> <a href="images/pic09.jpg" title="Dark Forrest &nbsp; Germany, 2010" data-fancybox-group="group1" class="popup">
+        <div class="images"><img src="images/pic09.jpg" alt="" />
+          <div class="title">
+            <div class="title-wrap">
+              <h3><span>Dark Forrest</span> </h3>
+            </div>
+          </div>
+          <div class="subtitle">
+            <div class="subtitle-wrap">
+              <p> <span>Germany, 2010</span> </p>
+            </div>
+          </div>
+        </div>
+        </a> </li>
+      <li class="element home germany"> <a href="images/pic14.jpg" title="Cute Bunny &nbsp; Germany, 2013" data-fancybox-group="group1" class="popup">
+        <div class="images"><img src="images/pic14.jpg" alt="" />
+          <div class="title">
+            <div class="title-wrap">
+              <h3><span>Cute Bunny</span> </h3>
+            </div>
+          </div>
+          <div class="subtitle">
+            <div class="subtitle-wrap">
+              <p> <span>Germany, 2013</span> </p>
+            </div>
+          </div>
+        </div>
+        </a> </li>
+      <li class="element home norway"> <a href="images/pic16.jpg" title="Fish Net &nbsp; Norway, 2012" data-fancybox-group="group1" class="popup">
+        <div class="images"><img src="images/pic16.jpg" alt="" />
+          <div class="title">
+            <div class="title-wrap">
+              <h3><span>Fish Net</span> </h3>
+            </div>
+          </div>
+          <div class="subtitle">
+            <div class="subtitle-wrap">
+              <p> <span>Norway, 2012</span> </p>
+            </div>
+          </div>
+        </div>
+        </a> </li>
+      <li class="element home germany"> <a href="images/pic17.jpg" title="Forrest in Fall &nbsp; Germany, 2012" data-fancybox-group="group1" class="popup">
+        <div class="images"><img src="images/pic17.jpg" alt="" />
+          <div class="title">
+            <div class="title-wrap">
+              <h3><span>Forrest in Fall</span> </h3>
+            </div>
+          </div>
+          <div class="subtitle">
+            <div class="subtitle-wrap">
+              <p> <span>Germany, 2012</span> </p>
+            </div>
+          </div>
+        </div>
+        </a> </li>
+      <li class="element home poland"> <a href="images/pic18.jpg" title="Broken Peer &nbsp; Poland, 2012" data-fancybox-group="group1" class="popup">
+        <div class="images"><img src="images/pic18.jpg" alt="" />
+          <div class="title">
+            <div class="title-wrap">
+              <h3><span>Broken Peer</span> </h3>
+            </div>
+          </div>
+          <div class="subtitle">
+            <div class="subtitle-wrap">
+              <p> <span>Poland, 2012</span> </p>
+            </div>
+          </div>
+        </div>
+        </a> </li>
+      <li class="element home norway"> <a href="images/pic19b.jpg" title="Moose in Wildernis &nbsp; Sweden, 2012" data-fancybox-group="group1" class="popup">
+        <div class="images"><img src="images/pic19.jpg" alt="" />
+          <div class="title">
+            <div class="title-wrap">
+              <h3><span>Moose in Wildernis</span> </h3>
+            </div>
+          </div>
+          <div class="subtitle">
+            <div class="subtitle-wrap">
+              <p> <span>Sweden, 2012</span> </p>
+            </div>
+          </div>
+        </div>
+        </a> </li>
+      <li class="element home norway"> <a href="images/pic20.jpg" title="Red House &nbsp; Norway, 2010" data-fancybox-group="group1" class="popup">
+        <div class="images"><img src="images/pic20.jpg" alt="" />
+          <div class="title">
+            <div class="title-wrap">
+              <h3><span>Red House</span> </h3>
+            </div>
+          </div>
+          <div class="subtitle">
+            <div class="subtitle-wrap">
+              <p> <span>Norway, 2010</span> </p>
+            </div>
+          </div>
+        </div>
+        </a> </li>
+    </ul>
+  </div>
+  <!-- end content -->
 </div>
- 
-<div id="center">
-<div id="content">
- 
-{block:Posts}
- 
-<div class="entry">
- 
-{block:Text}
-{block:Title}<center><span class="title">{Title}</span></center>{/block:Title}<div class="answer">
-<div style="margin-left:1px;">{Body}</div></div>
-<div class="permalink"><a href="{ReblogUrl}">↻</a>&nbsp;with&nbsp;<a href="{permalink}">{NoteCountwithLabel}</a></div>
-{/block:Text}
- 
-{block:Link}
-<center><a href="{URL}"><span class="title">{Name}</span></a></center>
-<div style="margin-left:3px;">{block:Description}{Description}{/block:Description}</div>
-<div class="permalink"><a href="{ReblogUrl}">↻</a>&nbsp;with&nbsp;<a href="{permalink}">{NoteCountwithLabel}</a></div>
-{block:Link}
- 
-{block:Photo}
-{block:IndexPage}{LinkOpenTag}<div class="photo"><a href="{permalink}"><img src="{PhotoURL-500}" alt="{PhotoAlt}" width=250px/></a></div>{LinkCloseTag}
-<div class="perma">
-<p></p><p></p><p></p>CLICK PICTURE FOR MORE INFO</div>
-{/block:IndexPage}{block:PermalinkPage}{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"width=400px/>{LinkCloseTag}{/block:PermalinkPage}
-{/block:Photo}
- 
-{block:Photoset}
-{block:IndexPage}{Photoset-250}{/block:IndexPage}
-{block:PermalinkPage}{PhotoSet-500}{/block:PermalinkPage}
-<div class="permalink"><a href="{ReblogUrl}">↻</a>&nbsp;with&nbsp;<a href="{permalink}">{NoteCountwithLabel}</a></div>
-{/block:Photoset}
- 
-{block:Quote}
-<div style="margin-left:3px;">
-{Quote}</span><br><i>{Source}</i>
+<!-- end wrap -->
+<footer>
+  <div class="container">
+    <ul class="social clearfix alignleft">
+      <li class="pinterest"><a href="#" onClick="return false">Visit our pinterest Account</a></li>
+      <li class="dribble"><a href="#" onClick="return false">Visit our dribble Account</a></li>
+      <li class="tweat"><a href="#" onClick="return false">Visit our twitter Account</a></li>
+      <li class="instagram"><a href="#" onClick="return false">Visit our instagram Account</a></li>
+    </ul>
+    <p class="small alignright"> © 2013, FULLSCREEN</p>
+  </div>
+</footer>
+<!-- BACK TO TOP BUTTON -->
+<div id="backtotop">
+  <ul>
+    <li><a id="toTop" href="#" onClick="return false">Back to Top</a></li>
+  </ul>
 </div>
-<div class="permalink"><a href="{ReblogUrl}">↻</a>&nbsp;with&nbsp;<a href="{permalink}">{NoteCountwithLabel}</a></div>
-{/block:Quote}
- 
-{block:Chat}
-<div style="margin-left:3px;">
-{block:Title}<span class="title">{Title}</span>{/block:Title}
-<ul class="chat">
-{block:Lines}
-<li class="user_{UserNumber}">
-{block:Label}
-<span class="label">{Label}</span>
-{/block:Label}
-{Line}
-</li>
-{/block:Lines}
-</ul>
-</div>
-<div class="permalink"><a href="{ReblogUrl}">↻</a>&nbsp;with&nbsp;<a href="{permalink}">{NoteCountwithLabel}</a></div>
-{/block:Chat}
- 
-{block:Audio}<div style="height:0px;background-color:black;opacity:0.1;width:100%;margin-top:10px;margin-bottom:5px;"></div>
-<center>{AudioPlayerBlack}
-{block:Caption}{Caption}{/block:Caption}</center>
-<div class="permalink"><a href="{ReblogUrl}">{text:reblog}</a>&nbsp;with&nbsp;<a href="{permalink}">{NoteCountwithLabel}</a></div>
-{/block:Audio}
- 
-{block:Answer}<img src="{AskerPortraitURL-24}" align="left" z-index: 1; style="padding:2px; border:1px solid #eeeeee"/> {Asker} asked: <br><i>{Question}</i><br><br><div class="answer">{Answer}</div>
-<div class="permalink"><a href="{ReblogUrl}">{text:reblog}</a>&nbsp;with&nbsp;<a href="{permalink}">{NoteCountwithLabel}</a></div>
-{/block:Answer}
- 
-{block:Video}
-{block:IndexPage}
-<center>
-{Video-400}</center>
-{/block:IndexPage}
-{block:PermalinkPage}
-<center>
-{Video-500}</center>
-{/block:PermalinkPage}
-{block:Video}
- 
-{block:PermalinkPage}
-{block:Caption}{Caption}<div style="height:1px;background-color:black;opacity:0.1;width:100%;margin-top:5px;margin-bottom:5px;"></div>{/block:Caption}
-{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}{block:HasTags} &middot; {block:Tags}<a href="TagURL"> #{Tag}</a> {/block:Tags}{/block:hasTags}
-{/block:PermalinkPage}
- 
-{block:PostNotes}
-<div class="notess">{PostNotes}</div>
-{/block:PostNotes}
-</div>
- 
-{/block:Posts}
- 
-{block:IndexPage}
-{block:Pagination}
-<div id="pagination">
-{block:NextPage}
-<a id="nextPage" href="{NextPage}"></a>
-{/block:NextPage}
-{block:PreviousPage}
-<a href="{PreviousPage}"></a>
-{/block:PreviousPage}
-</div>
-{/block:Pagination}
-{/block:IndexPage}
-</div>
- 
- 
- 
+<!--<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>-->
+<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="js/jquery-easing-1.3.js" type="text/javascript"></script>
+<script src="js/modernizr.js" type="text/javascript"></script>
+<script src="js/retina.js" type="text/javascript"></script>
+<!--<script src="js/jquery.gomap-1.3.2.min.js" type="text/javascript"></script>-->
+<script src="js/jquery.isotope.min.js" type="text/javascript"></script>
+<script src="js/jquery.ba-bbq.min.js" type="text/javascript"></script>
+<script src="js/jquery.isotope.load_home.js" type="text/javascript"></script>
+<script src="js/jquery.isotope.perfectmasonry.js"></script>
+<!--<script src="js/jquery.form.js" type="text/javascript"></script>
+<script src="js/input.fields.js" type="text/javascript"></script>-->
+<script src="js/responsive-nav.js" type="text/javascript"></script>
+<script defer src="js/jquery.flexslider-min.js"></script>
+<script src="js/jquery.fancybox.pack.js" type="text/javascript"></script>
+<script src="js/image-hover.js" type="text/javascript"></script>
+<script src="js/scrollup.js" type="text/javascript"></script>
+<script src="js/preloader.js" type="text/javascript"></script>
+<script src="js/navi-slidedown.js" type="text/javascript"></script>
+<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </body>
 </html>
