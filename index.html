@@ -1,1 +1,400 @@
-hello world
+<head>
+ 
+<link rel="shortcut icon" href="{PortraitURL-24}">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}" />
+<meta name="viewport" content="width=820" />
+ 
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+ 
+{block:IndexPage}
+ 
+<script type="text/javascript"
+src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+ 
+<script type="text/javascript" src="http://static.tumblr.com/dbek3sy/iBElrgjim/jquerymasonry.js"></script>
+ 
+<script type="text/javascript" src="http://static.tumblr.com/dbek3sy/Qyblrgjfn/jqueryinfintescroll.js"></script>
+<script type="text/javascript">
+$(window).load(function () {
+var $content = $('#content');
+$content.masonry({itemSelector: '.entry'}),
+$content.infinitescroll({
+navSelector : 'div#pagination',
+nextSelector : 'div#pagination a#nextPage',
+itemSelector : '.entry',
+loading: {
+finishedMsg: '',
+img: 'http://static.tumblr.com/dbek3sy/pX1lrx8xv/ajax-loader.gif'
+},
+bufferPx : 600,
+debug : false,
+},
+// call masonry as a callback.
+function( newElements ) {
+var $newElems = $( newElements );
+$newElems.hide();
+// ensure that images load before adding to masonry layout
+$newElems.imagesLoaded(function(){
+$content.masonry( 'appended', $newElems, true, function(){$newElems.fadeIn(300);} );});});});</script>
+{/block:IndexPage}
+ 
+<meta name="color:background" content="#ffffff" />
+<meta name="color:text" content="#000" />
+<meta name="color:title link" content="#4e4e4e" />
+<meta name="color:link" content="#a3a3a3" />
+<meta name="color:nav link" content="#ffffff" />
+<meta name="color:nav background" content="#a3a3a3" />
+<meta name="color:link hover" content="#eee" />
+<meta name="color:scrollbar" content="#000" />
+<meta name="color:post border" content="#ebebeb" />
+<meta name="color:permalinks" content="#ffffff">
+ 
+<meta name="if:1 column" content="0">
+<meta name="if:2 columns" content="1">
+<meta name="if:3 columns" content="0">
+<meta name="image:background" content="" />
+ 
+<meta name="text:link1" content="link1" />
+<meta name="text:link1url" content="http://" />
+<meta name="text:link2" content="link2" />
+<meta name="text:link2url" content="http://" />
+<meta name="text:link3" content="link3" />
+<meta name="text:link3url" content="http://" />
+ 
+ 
+<style type="text/css">
+ 
+ 
+::-webkit-scrollbar {width: 5px; height: 0px; background:{color:background};}
+::-webkit-scrollbar-thumb {background: {color:scrollbar}; border-radius:10px;}
+ 
+iframe#tumblr_controls {position:fixed; z-index:9999999999; top: 3px; margin: 0 0 0 0; right:4px; -webkit-filter: invert(100%);}
+ 
+body {
+background-color: {color:background};
+background-image:url({image:Background});
+background-attachment: fixed;
+background-repeat: repeat;
+font-size:20px;
+font-family:ABEL;
+line-height:20px;
+text-transform:none;
+color: {color:text};
+}
+ 
+#nav{
+position:fixed;
+top:200px;
+left:20px;
+width:500px;
+text-align:center;
+border:3px solid #000000;
+}
+ 
+#navlink{  
+font-size:19px;
+line-height:20px;
+word-spacing:7px;
+text-align:center;
+text-transform:uppercase;
+-moz-transition: all 0.4s ease-in-out;
+-webkit-transition: all 0.4s ease-in-out;
+-o-transition: all 0.4s ease-in-out;
+-ms-transition: all 0.4s ease-in-out;
+transition: all 0.4s ease-in-out;
+}
+ 
+#navlink a{
+color:{color:nav link};    
+background-color:{color:nav background};  
+padding-left:3px;
+padding-right:3px;
+}
+ 
+#navlink a:hover{
+color:{color:nav background};
+background-color:{color:nav link};
+}
+ 
+.description{  
+font-size:13px;
+line-height:14px;
+text-transform:none;
+word-spacing:1px;
+}
+ 
+.answer{
+}
+.answer img {
+width:250px;
+height:auto;
+{block:permalinkpage}
+width:auto;
+height:auto;
+{/block:permalinkpage}
+}
+ 
+a {
+text-decoration:none;
+color:{color:link};
+-webkit-transition: all 0.4s linear;
+-moz-transition: all 0.4s linear;
+transition: all 0.4s linear;
+}
+ 
+a:link, a:active, a:visited{
+color: {color:link};
+}
+ 
+a:hover{
+color: {color:link hover};
+}
+ 
+div#center{
+margin-left: 0px;
+width: 100%;
+height: auto;
+overflow-x:hidden;
+}
+ 
+div#content {
+width: 600px;
+left:600px;
+margin-top:40px;
+position: absolute;
+}
+ 
+.entry{
+margin:8px;
+padding:5px;
+float:left;
+height:auto;
+background-color: #trans;
+{block:IndexPage}
+border:1px solid {color:post border};
+width:250px;
+overflow:hidden;
+{/block:IndexPage}
+{block:PermalinkPage}
+width:400px;
+height:auto;
+{/block:PermalinkPage}
+ 
+}
+ 
+.title{
+font-size:21px;
+line-height:22px;
+text-transform:uppercase;
+color: {color:text};
+}
+ 
+blockquote{
+padding:0px 0px 0px 3px;
+margin:0px 0px 0px 2px;
+border-left: 2px solid #ddd;
+}
+ 
+.entry .perma{
+position:absolute;
+background:{color:permalinks};
+border-radius:5px;
+padding-top:5px;
+padding-bottom:5px;
+left: 50%;
+margin-left:-70px;
+width:140px;
+height:70px;
+margin-top:-40px;
+top:50%;
+overflow:hidden;
+text-align:center;
+text-transform:uppercase;
+font-size:14px;
+line-height:23px;
+box-shadow:1px 3px 7px gray;
+opacity: 0;
+-webkit-transition: all 0.2s linear;
+-webkit-transition: all 0.2s linear;
+-moz-transition: all 0.2s linear;
+transition: all 0.2s linear;
+}
+ 
+.entry:hover .perma{
+overflow:hidden;
+opacity: .9;
+-webkit-transition: all 0.2s linear;
+-webkit-transition: all 0.2s linear;
+-moz-transition: all 0.2s linear;
+transition: all 0.2s linear;
+}
+ 
+.k{
+word-spacing:1px;
+}
+ 
+#titlelink a{
+background-color:{color:title link};
+}
+ 
+.permalink{
+text-align:center;
+opacity:0;
+-webkit-transition: all 0.4s linear;
+-webkit-transition: all 0.4s linear;
+-moz-transition: all 0.4s linear;
+transition: all 0.4s linear;
+}
+ 
+.entry:hover .permalink{
+opacity:1;
+-webkit-transition: all 0.4s linear;
+-webkit-transition: all 0.4s linear;
+-moz-transition: all 0.4s linear;
+transition: all 0.4s linear;
+}
+ 
+.notess{
+position:absolute;
+border:12px solid {color:post border};
+padding:5px;
+left:450px;
+top:10px;
+height:500px;
+width:500px;
+overflow:scroll;
+}
+ 
+{CustomCSS}
+</style>
+ 
+<title>{title}</title>
+ 
+<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}" />
+ 
+</head>
+<body>
+
+
+<div id="nav">
+ 
+<span id="navlink">
+<img src="http://www.thesoundofsalvation.com/images/sitegraphics/SoS%20headerwhite.jpg"><P></P>
+<a href="/">home</a>
+<a href="http://thesoundofsalvation.bigcartel.com">SHOP</a>
+
+ 
+ 
+{block:HasPages}{block:Pages}<a href="{URL}"><span class="k">{Label}</span></a> {/block:Pages}{/block:HasPages}
+</span>
+<br><br>
+<span class="description">{Description}</span>
+</div>
+ 
+<div id="center">
+<div id="content">
+ 
+{block:Posts}
+ 
+<div class="entry">
+ 
+{block:Text}
+{block:Title}<center><span class="title">{Title}</span></center>{/block:Title}<div class="answer">
+<div style="margin-left:1px;">{Body}</div></div>
+<div class="permalink"><a href="{ReblogUrl}">↻</a>&nbsp;with&nbsp;<a href="{permalink}">{NoteCountwithLabel}</a></div>
+{/block:Text}
+ 
+{block:Link}
+<center><a href="{URL}"><span class="title">{Name}</span></a></center>
+<div style="margin-left:3px;">{block:Description}{Description}{/block:Description}</div>
+<div class="permalink"><a href="{ReblogUrl}">↻</a>&nbsp;with&nbsp;<a href="{permalink}">{NoteCountwithLabel}</a></div>
+{block:Link}
+ 
+{block:Photo}
+{block:IndexPage}{LinkOpenTag}<div class="photo"><a href="{permalink}"><img src="{PhotoURL-500}" alt="{PhotoAlt}" width=250px/></a></div>{LinkCloseTag}
+<div class="perma">
+<p></p><p></p><p></p>CLICK PICTURE FOR MORE INFO</div>
+{/block:IndexPage}{block:PermalinkPage}{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}"width=400px/>{LinkCloseTag}{/block:PermalinkPage}
+{/block:Photo}
+ 
+{block:Photoset}
+{block:IndexPage}{Photoset-250}{/block:IndexPage}
+{block:PermalinkPage}{PhotoSet-500}{/block:PermalinkPage}
+<div class="permalink"><a href="{ReblogUrl}">↻</a>&nbsp;with&nbsp;<a href="{permalink}">{NoteCountwithLabel}</a></div>
+{/block:Photoset}
+ 
+{block:Quote}
+<div style="margin-left:3px;">
+{Quote}</span><br><i>{Source}</i>
+</div>
+<div class="permalink"><a href="{ReblogUrl}">↻</a>&nbsp;with&nbsp;<a href="{permalink}">{NoteCountwithLabel}</a></div>
+{/block:Quote}
+ 
+{block:Chat}
+<div style="margin-left:3px;">
+{block:Title}<span class="title">{Title}</span>{/block:Title}
+<ul class="chat">
+{block:Lines}
+<li class="user_{UserNumber}">
+{block:Label}
+<span class="label">{Label}</span>
+{/block:Label}
+{Line}
+</li>
+{/block:Lines}
+</ul>
+</div>
+<div class="permalink"><a href="{ReblogUrl}">↻</a>&nbsp;with&nbsp;<a href="{permalink}">{NoteCountwithLabel}</a></div>
+{/block:Chat}
+ 
+{block:Audio}<div style="height:0px;background-color:black;opacity:0.1;width:100%;margin-top:10px;margin-bottom:5px;"></div>
+<center>{AudioPlayerBlack}
+{block:Caption}{Caption}{/block:Caption}</center>
+<div class="permalink"><a href="{ReblogUrl}">{text:reblog}</a>&nbsp;with&nbsp;<a href="{permalink}">{NoteCountwithLabel}</a></div>
+{/block:Audio}
+ 
+{block:Answer}<img src="{AskerPortraitURL-24}" align="left" z-index: 1; style="padding:2px; border:1px solid #eeeeee"/> {Asker} asked: <br><i>{Question}</i><br><br><div class="answer">{Answer}</div>
+<div class="permalink"><a href="{ReblogUrl}">{text:reblog}</a>&nbsp;with&nbsp;<a href="{permalink}">{NoteCountwithLabel}</a></div>
+{/block:Answer}
+ 
+{block:Video}
+{block:IndexPage}
+<center>
+{Video-400}</center>
+{/block:IndexPage}
+{block:PermalinkPage}
+<center>
+{Video-500}</center>
+{/block:PermalinkPage}
+{block:Video}
+ 
+{block:PermalinkPage}
+{block:Caption}{Caption}<div style="height:1px;background-color:black;opacity:0.1;width:100%;margin-top:5px;margin-bottom:5px;"></div>{/block:Caption}
+{block:NoteCount}{NoteCountWithLabel}{/block:NoteCount}{block:HasTags} &middot; {block:Tags}<a href="TagURL"> #{Tag}</a> {/block:Tags}{/block:hasTags}
+{/block:PermalinkPage}
+ 
+{block:PostNotes}
+<div class="notess">{PostNotes}</div>
+{/block:PostNotes}
+</div>
+ 
+{/block:Posts}
+ 
+{block:IndexPage}
+{block:Pagination}
+<div id="pagination">
+{block:NextPage}
+<a id="nextPage" href="{NextPage}"></a>
+{/block:NextPage}
+{block:PreviousPage}
+<a href="{PreviousPage}"></a>
+{/block:PreviousPage}
+</div>
+{/block:Pagination}
+{/block:IndexPage}
+</div>
+ 
+ 
+ 
+</body>
+</html>
